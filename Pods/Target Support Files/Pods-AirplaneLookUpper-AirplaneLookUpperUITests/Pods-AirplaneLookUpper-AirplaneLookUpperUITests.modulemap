@@ -1,0 +1,6 @@
+framework module Pods_AirplaneLookUpper_AirplaneLookUpperUITests {
+  umbrella header "Pods-AirplaneLookUpper-AirplaneLookUpperUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
