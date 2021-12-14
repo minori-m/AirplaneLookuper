@@ -179,10 +179,27 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                 //                print(raw_data)
                 print(url)
                 //                print(each_flignt)
-                let first_flight = try each_flignt[1] as! NSArray
-                //                print(first_flight)
-                print(first_flight[1])
-                self.label_text = first_flight[1] as! String //1:便名, 5:latitude, 6:longtitude,7:altitude(高度)
+                var shortest_distance = 100000000.0
+                var shortest_flight = ""
+                for this_flight in each_flignt {
+                    let flight = this_flight as! NSArray
+                    let flight_point:CLLocation = CLLocation(latitude: flight[6] as! CLLocationDegrees, longitude: flight[5] as! CLLocationDegrees)
+                    let distance = flight_point.distance(from: location!)
+                    print("distance is \(distance)")
+                    if  distance < shortest_distance {
+                        shortest_distance = distance
+                        shortest_flight = flight[1] as! String
+                    }
+                }
+                print("shortest is \(shortest_flight)")
+                
+                
+//                let first_flight = try each_flignt[1] as! NSArray
+//                //                print(first_flight)
+//                print(first_flight[1])
+                //self.label_text = first_flight[1] as! String //1:便名, 5:latitude, 6:longtitude,7:altitude(高度)
+                self.label_text = shortest_flight //1:便名, 5:latitude, 6:longtitude,7:altitude(高度)
+                
                 //label.text = first_flight as! String
                 print("label_text is  \(self.label_text)")
                 
