@@ -133,23 +133,23 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         
     }
     
-    @IBAction func locationButtonTapped(_ sender:Any){
-        // delegateを設定
-        locationManager.delegate = self
-        // 測位精度の設定
-        locationManager.desiredAccuracy = locationAccuracy[1]
-        // アップデートする距離半径(m)
-        locationManager.distanceFilter = 10
-        // 位置情報の取得を開始
-        locationManager.startUpdatingLocation()
-        //データ取得に1sかかると考えて待つ
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            // 0.5秒後に実行したい処理
-            self.label?.text = self.label_text
-            
-        }
-        
-    }
+//    @IBAction func locationButtonTapped(_ sender:Any){
+//        // delegateを設定
+//        locationManager.delegate = self
+//        // 測位精度の設定
+//        locationManager.desiredAccuracy = locationAccuracy[1]
+//        // アップデートする距離半径(m)
+//        locationManager.distanceFilter = 10
+//        // 位置情報の取得を開始
+//        locationManager.startUpdatingLocation()
+//        //データ取得に1sかかると考えて待つ
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//            // 0.5秒後に実行したい処理
+//            self.label?.text = self.label_text
+//
+//        }
+//
+//    }
     enum MyError: Error {
         case BadJSON(String)
     }
