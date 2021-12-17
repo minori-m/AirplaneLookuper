@@ -198,6 +198,16 @@ func saveToDocumentDirectory(data : Any, fileName:String, completionHandler: @es
                 completionHandler(false)
             }
         }}
+    else if (fileType == "png"){
+        saveFileAtAWSDocumentsDirectory(data: data as! Data, fileName: fileName){ (success) in
+            if success {
+                print("pngsuccess")
+                completionHandler(true)
+            } else {
+                print("failure")
+                completionHandler(false)
+            }
+        }}
     else if (fileType == "csv"){
         saveFileAtAWSDocumentsDirectory(data: data as! Data, fileName: fileName){ (success) in
             if success {

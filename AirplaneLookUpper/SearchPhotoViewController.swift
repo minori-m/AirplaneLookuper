@@ -35,35 +35,9 @@ class SearchPhotoViewController: UIViewController {
     }
     
     @IBAction func searchButtonTapped(_ sender: Any) {
-        let GetFileList_instance = GetFileList()
         
-        GetFileList_instance.getAllFileFromAWSS3Server { (fileNames, error) in
-            let files = fileNames as! [String]
-            print("files=\(files)")
-            if (files.count >= 1){
-                self.toBeDownloadFileNames = files
-                self.downloadContents(fileNames: fileNames as! [String])
-            }else{
-                //self.showInfoInAlert(msg: "No file to download")
-            }
-            print(files)
-        }
         
-//        let callsign = callsignInput.text!
-//        print(callsign)
-//        self.getBucketContentsList()
-//        DispatchQueue.main.async {
-//            //let downloadfileName = self.contentsList[0]
-//            //print(downloadfileName)
-//            //AWSS3ItemsTableViewController_instance.startOperation(fileNames: ["AAL9728 .png"])
-//            //let AWSS3Manager_instance = AWSS3Manager()
-//            //AWSS3Manager.shared.justDownloadFile(fileName: "AAL9728 .png")
-//            self.downloadContents(fileNames: ["AAL9728 .png"])
-//        }
-        //        let storyBoard : UIStoryboard = UIStoryboard(name: “Main”, bundle:nil)
-        //        let nextViewController = storyBoard.instantiateViewController(withIdentifier: “tableViewStoryID”) as! AWSS3ItemsTableViewController
-        //        //self.present(nextViewController, animated:true, completion:nil)
-        //        self.navigationController!.pushViewController(nextViewController, animated: true)
+
     }
     @IBAction func CloseShootResult(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
@@ -75,15 +49,7 @@ class SearchPhotoViewController: UIViewController {
     // completion: completion block when uplaoding is finish, we will get S3 url of upload file here
     
     
-    func getBucketContentsList(){
-        let GetFileList_instance = GetFileList()
-        //self.contentsList = GetFileList_instance.getAllFileNamesFromAWSS3Server(bucketName: bucketName)
-        print("bucketName=\(bucketName)")
-        print("self.bucketName=\(self.bucketName)")
-        
-        print("contents = \(self.contentsList)")
-        
-    }
+    
     
     func downloadContents(fileNames:[String]){
         downloadTasks = []
