@@ -98,13 +98,13 @@ extension DownloadsCollectionViewController: UICollectionViewDataSource {
 //                }
                 else{
                     //self.statusLabel.text = "Success"
-                    cell.image = image(data: data!)
+                    cell.image = image(data: data!)?.rotatedBy(degree: 90)
                 }
             })
         }
         print("success1")
         transferUtility.downloadData(
-            fromBucket: self.bucketName, key: "AAL9728 .png", expression: expression,
+            fromBucket: self.bucketName, key: post, expression: expression,
             completionHandler: completionHandler).continueWith { (task) -> AnyObject? in
                 if let error = task.error {
                     NSLog("Error: %@",error.localizedDescription);
@@ -145,3 +145,22 @@ extension DownloadsCollectionViewController: UICollectionViewDataSource {
     }
     
 }
+extension UIImage {
+
+    func rotatedBy(degree: CGFloat) -> UIImage {
+        let radian = -degree * CGFloat.pi / 180
+        UIGraphicsBeginImageContext(self.size)
+        let context = UIGraphicsGetCurrentContext()!
+        context.translateBy(x: self.size.width / 2, y: self.size.height / 2)
+        context.scaleBy(x: 1.0, y: -1.0)
+
+        context.rotate(by: radian)
+        context.draw(self.cgImage!, in: CGRect(x: -(self.size.width / 2), y: -(self.size.height / 2), width: self.size.width, height: self.size.height))
+
+        let rotatedImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return rotatedImage
+    }
+
+}
+
