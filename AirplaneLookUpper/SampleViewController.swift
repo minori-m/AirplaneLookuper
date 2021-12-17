@@ -35,7 +35,7 @@ class SampleViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.progressView.progress = 0.0;
+        //self.progressView.progress = 0.0;
         self.statusLabel.text = "Ready"
     }
     
@@ -48,19 +48,19 @@ class SampleViewController: UIViewController{
         
         DispatchQueue.main.async(execute: {
             self.statusLabel.text = ""
-            self.progressView.progress = 0
+            //self.progressView.progress = 0
         })
         
         self.imageView.image = nil;
         
         let expression = AWSS3TransferUtilityDownloadExpression()
-        expression.progressBlock = {(task, progress) in
-            DispatchQueue.main.async(execute: {
-                if (self.progressView.progress < Float(progress.fractionCompleted)) {
-                    self.progressView.progress = Float(progress.fractionCompleted)
-                }
-            })
-        }
+        //expression.progressBlock = {(task, progress) in
+//            DispatchQueue.main.async(execute: {
+//                if (self.progressView.progress < Float(progress.fractionCompleted)) {
+//                    self.progressView.progress = Float(progress.fractionCompleted)
+//                }
+//            })
+//        }
         
         self.completionHandler = { (task, location, data, error) -> Void in
             DispatchQueue.main.async(execute: {
@@ -68,9 +68,9 @@ class SampleViewController: UIViewController{
                     NSLog("Failed with error: \(error)")
                     self.statusLabel.text = "Failed"
                 }
-                else if(self.progressView.progress != 1.0) {
-                    self.statusLabel.text = "Failed"
-                }
+//                else if(self.progressView.progress != 1.0) {
+//                    self.statusLabel.text = "Failed"
+//                }
                 else{
                     self.statusLabel.text = "Success"
                     self.imageView.image = UIImage(data: data!)

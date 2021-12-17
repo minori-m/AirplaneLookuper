@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3F9CEE93276B967F00302FBD /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CEE92276B967F00302FBD /* CollectionViewController.swift */; };
 		3F9CEE95276CB01600302FBD /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CEE94276CB01600302FBD /* SampleViewController.swift */; };
+		3F9CEE97276CB68300302FBD /* DownloadsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CEE96276CB68300302FBD /* DownloadsCollectionViewController.swift */; };
+		3F9CEE99276CB9F800302FBD /* SampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CEE98276CB9F800302FBD /* SampleCell.swift */; };
 		3FB87B462768D9CC00C9A92A /* SearchPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB87B452768D9CC00C9A92A /* SearchPhotoViewController.swift */; };
 		3FB87B48276A1FAE00C9A92A /* AWSS3ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB87B47276A1FAE00C9A92A /* AWSS3ItemsTableViewController.swift */; };
 		3FB87B4A276A204700C9A92A /* DataDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB87B49276A204700C9A92A /* DataDownloader.swift */; };
@@ -59,6 +61,8 @@
 		39756525777DD40E337A0C7B /* Pods-AirplaneLookUpper-AirplaneLookUpperUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirplaneLookUpper-AirplaneLookUpperUITests.release.xcconfig"; path = "Target Support Files/Pods-AirplaneLookUpper-AirplaneLookUpperUITests/Pods-AirplaneLookUpper-AirplaneLookUpperUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3F9CEE92276B967F00302FBD /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		3F9CEE94276CB01600302FBD /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
+		3F9CEE96276CB68300302FBD /* DownloadsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsCollectionViewController.swift; sourceTree = "<group>"; };
+		3F9CEE98276CB9F800302FBD /* SampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCell.swift; sourceTree = "<group>"; };
 		3FB87B452768D9CC00C9A92A /* SearchPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotoViewController.swift; sourceTree = "<group>"; };
 		3FB87B47276A1FAE00C9A92A /* AWSS3ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSS3ItemsTableViewController.swift; sourceTree = "<group>"; };
 		3FB87B49276A204700C9A92A /* DataDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDownloader.swift; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				3F9CEE92276B967F00302FBD /* CollectionViewController.swift */,
+				3F9CEE96276CB68300302FBD /* DownloadsCollectionViewController.swift */,
+				3F9CEE98276CB9F800302FBD /* SampleCell.swift */,
 				3FB87B55276A2CF000C9A92A /* FileDetailViewController.swift */,
 				3FB87B57276A2CF300C9A92A /* AWSS3FileManager.swift */,
 				3FB87B49276A204700C9A92A /* DataDownloader.swift */,
@@ -455,6 +461,7 @@
 				3FE09EB82747FE5300AA8ED5 /* ViewController.swift in Sources */,
 				3FE09EE827665FCC00AA8ED5 /* ShootResultViewController.swift in Sources */,
 				3FB87B56276A2CF000C9A92A /* FileDetailViewController.swift in Sources */,
+				3F9CEE97276CB68300302FBD /* DownloadsCollectionViewController.swift in Sources */,
 				3F9CEE95276CB01600302FBD /* SampleViewController.swift in Sources */,
 				3F9CEE93276B967F00302FBD /* CollectionViewController.swift in Sources */,
 				3FE09EB42747FE5300AA8ED5 /* AppDelegate.swift in Sources */,
@@ -468,6 +475,7 @@
 				3FB87B54276A2CCF00C9A92A /* AWSS3ItemTableViewCell.swift in Sources */,
 				3FB87B5A276A2D3000C9A92A /* InternetConnectionMonitor.swift in Sources */,
 				3FB87B4A276A204700C9A92A /* DataDownloader.swift in Sources */,
+				3F9CEE99276CB9F800302FBD /* SampleCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

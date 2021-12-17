@@ -7,13 +7,13 @@
 
 import UIKit
 
-class CollectionViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate{
+class CollectionViewController: UICollectionViewController{
     let bucketName = "myairplanetest"
     var contentsList = [String]()
     
     var toBeDownloadFileNames = [String]()
-    @IBOutlet weak var collectionView: UICollectionView!
-    //@IBOutlet weak var collectionViewCell: UICollectionViewCell!
+    
+    @IBOutlet weak var collectionViewCell: UICollectionViewCell!
     
     
     var downloadTasks = [DataDownloader]() {
@@ -26,7 +26,7 @@ class CollectionViewController: UIViewController,UICollectionViewDataSource,UICo
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-//        UINib(nibName: "UICollectionElementKindCell", bundle:nil)
+        UINib(nibName: "UICollectionElementKindCell", bundle:nil)
         
         let GetFileList_instance = GetFileList()
         
@@ -65,16 +65,15 @@ class CollectionViewController: UIViewController,UICollectionViewDataSource,UICo
                     case .completed:
                         print("Completed")
                     case .pending, .inProgess(_):
-                        //print("inProgress")
-                        //guard let cell = self.collectionView.cellForItem(at: IndexPath(row: index, section: 0)) else {
+                        guard let cell = self.collectionView.cellForItem(at: IndexPath(row: index, section: 0)) as? SampleCell else {
                             return
-//                        }
-                            //self.collectionView.reconfigureItems(at: [IndexPath(row: index, section: 0)])
+                        }
+                        //let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "thiscell", for: IndexPath(row: index, section: 0)) as! SampleCell
+                        cell.image = UIImage(data: task.imageData)
+                        print(task.imageData)
                         //cell.configure(task)
-                        //self.collectionView.beginUpdates()
-//                        self.collectionView.endUpdates()
-                        self.collectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
-                        self.collectionView.reloadData()
+//                        self.collectionView.beginUpdates()
+//                        self.tableView.endUpdates()
                     }
                 }
             })
@@ -85,33 +84,32 @@ class CollectionViewController: UIViewController,UICollectionViewDataSource,UICo
         dispatchGroup.notify(queue: .main) { [unowned self] in
             // self.showInfoInAlert(msg: “All Download tasks has been completed”)
             print("All Download tasks has been completed")
-            self.collectionView.reloadData()
             // self.tableView.reloadData()
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("num of cell is \(toBeDownloadFileNames.count)")
         return toBeDownloadFileNames.count // 表示するセルの数
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath:IndexPath ) -> UICollectionViewCell {
-        
-        // "Cell" はストーリーボードで設定したセルのID
-        let testCell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "testcell", for: indexPath)
-        // Tag番号を使ってImageViewのインスタンス生成
-        let imageView = testCell.contentView.viewWithTag(1) as! UIImageView
-        // 画像配列の番号で指定された要素の名前の画像をUIImageとする
-        //let cellImage = UIImage(named: photos[indexPath.row])
-        let url = getAWSDocumentsDirectoryUrl().appendingPathComponent(toBeDownloadFileNames[indexPath.row]).absoluteString
-        print("url=\(url)")
-        let cellImage = UIImage(url:url)
-        print("line 100 end")
-        // UIImageをUIImageViewのimageとして設定
-        imageView.image=cellImage
-        return testCell
-    }
-    
+//    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath:IndexPath ) -> UICollectionViewCell {
+//
+//        // "Cell" はストーリーボードで設定したセルのID
+//        let testCell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "thiscell", for: indexPath)
+//        // Tag番号を使ってImageViewのインスタンス生成
+//        let imageView = testCell.contentView.viewWithTag(1) as! UIImageView
+//        // 画像配列の番号で指定された要素の名前の画像をUIImageとする
+//        //let cellImage = UIImage(named: photos[indexPath.row])
+//        let url = getAWSDocumentsDirectoryUrl().appendingPathComponent(toBeDownloadFileNames[indexPath.row]).absoluteString
+//        print("url=\(url)")
+//        let cellImage = UIImage(url:url)
+//        print("line 100 end")
+//        // UIImageをUIImageViewのimageとして設定
+//        imageView.image=cellImage
+//        return testCell
+//    }
+//    
     
     
     
